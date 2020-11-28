@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import packageJson from '../package.json';
 
+import UsersList from './UsersList';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         >
           Learn React
         </a>
+        <UsersList/>
       </header>
       <footer>
         {packageJson.version}
