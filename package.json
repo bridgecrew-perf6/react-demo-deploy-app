@@ -21,6 +21,9 @@
     "eject": "react-scripts eject",
     "postinstall": "npm run build"
   },
+  "engines": {
+    "node": "12.x"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
