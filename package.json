@@ -17,6 +17,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://shershen08.github.io/react-demo-deploy-app",
   "eslintConfig": {
     "extends": [
       "react-app",
