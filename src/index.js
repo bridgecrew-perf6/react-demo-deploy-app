@@ -4,9 +4,25 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { Integrations } from "@sentry/tracing";
+import * as Sentry from "@sentry/react";
+
+Sentry.init({
+  dsn: process.env.REACT_APP_SENTRY_URL,
+  integrations: [
+    new Integrations.BrowserTracing(),
+  ],
+
+  // We recommend adjusting this value in production, or using tracesSampler
+  // for finer control
+  tracesSampleRate: 1.0,
+});
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Sentry.ErrorBoundary fallback={"An error has occurred"}>
+      <App />
+    </Sentry.ErrorBoundary>
   </React.StrictMode>,
   document.getElementById('root')
 );
