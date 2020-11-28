@@ -1,9 +1,9 @@
-name: build
+name: build-docker
 
 on:
   push:
     branches: 
-      - master
+      - dev/digital-ocean-deploy
 
 jobs:
   build:
