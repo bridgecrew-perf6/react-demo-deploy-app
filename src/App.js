@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import packageJson from '../package.json';
+
 
 function App() {
   return (
@@ -18,6 +20,9 @@ function App() {
           Learn React
         </a>
       </header>
+      <footer>
+        {packageJson.version}
+      </footer>
     </div>
   );
 }
