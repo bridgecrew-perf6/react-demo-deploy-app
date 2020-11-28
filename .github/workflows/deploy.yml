@@ -24,14 +24,14 @@ jobs:
       with:
         name: shershen08/react-demo-deploy-app/my-app
         registry: docker.pkg.github.com
-        username: ${{ secrets.GITHUB_USERNAME }}
+        username: ${{ secrets.USERNAME_FULL }}
         password: ${{ secrets.GITHUB_TOKEN }}
         dockerfile: Dockerfile-prod
         tags: latest
     - name: Deploy package to digitalocean
       uses: appleboy/ssh-action@master
       env:
-          GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
+          GITHUB_USERNAME: ${{ secrets.USERNAME_FULL }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         host: ${{ secrets.HOST }}
