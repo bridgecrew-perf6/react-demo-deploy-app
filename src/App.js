@@ -25,7 +25,7 @@ function App() {
         <UsersList/>
       </header>
       <footer>
-        {packageJson.version}
+        {packageJson.version} // {process.env.NODE_ENV}
       </footer>
     </div>
   );
