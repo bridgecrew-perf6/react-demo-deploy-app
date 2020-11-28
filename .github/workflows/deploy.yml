@@ -24,7 +24,7 @@ jobs:
       with:
         name: my_github_username/my_repository_name/my_image_name
         registry: docker.pkg.github.com
-        username: ${{ secrets.GITHUB_USERNAME }}
+        username: ${{ secrets.USERNAME_FULL }}
         password: ${{ secrets.GITHUB_TOKEN }}
         dockerfile: Dockerfile-prod
         tags: latest
