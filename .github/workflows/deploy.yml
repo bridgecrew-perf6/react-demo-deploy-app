@@ -24,23 +24,23 @@ jobs:
       with:
         name: shershen08/react-demo-deploy-app/my-app
         registry: docker.pkg.github.com
-        username: ${{ secrets.USERNAME_FULL }}
+        username: ${{ secrets.GITHUB_USERNAME }}
         password: ${{ secrets.GITHUB_TOKEN }}
         dockerfile: Dockerfile-prod
         tags: latest
     - name: Deploy package to digitalocean
       uses: appleboy/ssh-action@master
       env:
-          GITHUB_USERNAME: ${{ secrets.USERNAME_FULL }}
+          GITHUB_USERNAME: ${{ secrets.GITHUB_USERNAME }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
-        envs: USERNAME_FULL, GITHUB_TOKEN
+        envs: GITHUB_USERNAME, GITHUB_TOKEN
         script: |
           docker stop $(docker ps -a -q)
-          docker login docker.pkg.github.com -u $USERNAME_FULL -p $GITHUB_TOKEN
+          docker login docker.pkg.github.com -u $GITHUB_USERNAME -p $GITHUB_TOKEN
           docker pull docker.pkg.github.com/shershen08/react-demo-deploy-app/my-app:latest
           docker run -dit -p 80:80 docker.pkg.github.com/shershen08/react-demo-deploy-app/my-app:latest
